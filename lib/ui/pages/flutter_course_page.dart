@@ -15,7 +15,7 @@ class FlutterCoursePage extends StatelessWidget {
             child: buildHeader(context),),
           Expanded(
             flex: 1,
-            child: buildCourseFocus(),),
+            child: buildCourseFocus(context),),
           Expanded(
             flex: 3,
             child: buildModules(),),
@@ -52,8 +52,43 @@ class FlutterCoursePage extends StatelessWidget {
     ],);
   }
 
-  Widget buildCourseFocus() {
-    return const Text("Focus on the course");
+  Widget buildCourseFocus(context) {
+    return Column(
+      children: [
+        Row(children: [
+          Expanded(
+            flex: 2,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1),
+              child: Text('Course focus')))
+        ],),
+        SizedBox(height: MediaQuery.of(context).size.width * 0.02),
+        Row(children: [
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1),
+              child: Row(children: [
+                Expanded(child: Container(color: Colors.yellow, height: 2)),
+                Expanded(child: Container(color: Colors.blue, height: 2)),
+                Expanded(child: Container(color: Colors.red, height: 2)),
+              ],),
+            ),)
+        ],),
+        SizedBox(height: MediaQuery.of(context).size.width * 0.02),
+        Row(children: [
+          Expanded(
+            flex: 2,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text('UI Development'),
+                Text('Architecture'),
+                Text('Design thinking Testing')
+            ],))
+        ],),
+      ],
+    );
   }
 
   Widget buildModules() {
