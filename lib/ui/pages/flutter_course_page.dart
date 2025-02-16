@@ -10,17 +10,46 @@ class FlutterCoursePage extends StatelessWidget {
       // you may remove this widget if you don't want to use it
       child: Column(
         children: <Widget>[
-          buildHeader(),
-          buildCourseFocus(),
-          buildModules(),
-          buildProjectList(),
+          Expanded(
+            flex: 1,
+            child: buildHeader(context),),
+          Expanded(
+            flex: 1,
+            child: buildCourseFocus(),),
+          Expanded(
+            flex: 3,
+            child: buildModules(),),
+          Expanded(
+            flex: 3,
+            child: buildProjectList(),),
         ],
       ),
     ));
   }
 
-  Widget buildHeader() {
-    return const Text("Flutter course");
+  Widget buildHeader(context) {
+    return Row(
+      children: [
+      Expanded(
+        flex: 5,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Flutter course'),
+              Text('2025-10'),
+            ],
+          ),
+        ),),
+      Expanded(
+        flex: 1,
+        child: Icon(Icons.search)),
+      Expanded(
+        flex: 1,
+        child: Icon(Icons.notifications)),
+    ],);
   }
 
   Widget buildCourseFocus() {
